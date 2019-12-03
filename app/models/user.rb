@@ -12,8 +12,18 @@ class User < ApplicationRecord
 
   devise :omniauthable, :omniauth_providers => [:google_oauth2]
 
+  # create methods
 
-
+  def build_new_donor
+    if self.donor.nil?
+    self.build_donor(
+      first_name: self.first_name, 
+      last_name: self.last_name, 
+      email: self.email
+    )
+    end
+    self.donor # ensure the donor is returned regardless if it was created or previously existed
+  end
 
   # method copy/pasted, check that it works and tweak
   def self.from_omniauth(auth)
