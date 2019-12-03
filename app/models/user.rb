@@ -2,7 +2,8 @@ class User < ApplicationRecord
   extend Devise::Models
   
   # associations
-  
+  has_one :donor
+  has_one :keeper
   
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
