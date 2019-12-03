@@ -1,0 +1,2 @@
+class KeepersController < ApplicationController
+end

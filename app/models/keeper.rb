@@ -1,0 +1,2 @@
+class Keeper < ApplicationRecord
+end
