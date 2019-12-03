@@ -4,7 +4,7 @@ class CreateAnimals < ActiveRecord::Migration[5.2]
       t.string :name
       t.string :species
       t.string :bio
-
+      t.references :keeper, foreign_key: true
       t.timestamps
     end
   end
