@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_03_024822) do
+ActiveRecord::Schema.define(version: 2019_12_03_195648) do
+
+  create_table "addresses", force: :cascade do |t|
+    t.string "street_1"
+    t.string "street_2"
+    t.string "city"
+    t.string "state"
+    t.string "postal_code"
+    t.string "country"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "animals", force: :cascade do |t|
     t.string "name"
@@ -81,6 +92,7 @@ ActiveRecord::Schema.define(version: 2019_12_03_024822) do
     t.integer "toy_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "status", default: "new"
     t.index ["animal_id"], name: "index_wishes_on_animal_id"
     t.index ["toy_id"], name: "index_wishes_on_toy_id"
   end
