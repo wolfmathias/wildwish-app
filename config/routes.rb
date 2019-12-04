@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
   
   # resources :donations
-  # resources :wishes
+  resources :wishes
   # resources :toys
-  # resources :keepers
+  resources :keepers
   # resources :donors
-  # resources :animals
-  
+  resources :animals
+
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   resources :users, only: [:show]
