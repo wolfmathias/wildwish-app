@@ -1,5 +1,7 @@
 <h1>Animal Profile Page</h1>
 
 <%= render partial: 'animal', locals: {animal: @animal} %>
-
-<%= link_to "Edit Wishlist", new_animal_wish_path(@animal) %> <%# what resource and path should this optimally be? %>
+<br>
+<%= link_to "Edit Animal Profile", edit_animal_path %>
+<br>
+<%= link_to "Return to Index", animals_path %> 
