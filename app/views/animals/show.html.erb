@@ -1,0 +1,10 @@
+<h1>Animal Profile Page</h1>
+
+<%= @animal.name %><br>
+<%= @animal.species %><br>
+<h3>Bio:</h3><br>
+<%= @animal.bio %>
+<h3>Toys in wishlist:</h3>
+<%= @animal.toy_ids %>
+
+<%= link_to "Add Toys to Wishlist", new_wish_path %>
