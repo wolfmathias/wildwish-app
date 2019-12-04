@@ -1,10 +1,5 @@
 <h1>Animal Profile Page</h1>
 
-<%= @animal.name %><br>
-<%= @animal.species %><br>
-<h3>Bio:</h3><br>
-<%= @animal.bio %>
-<h3>Toys in wishlist:</h3>
-<%= @animal.toy_ids %>
+<%= render partial: 'animal', locals: {animal: @animal} %>
 
-<%= link_to "Edit Wishlist", new_animal_wish_path(@animal) %>
+<%= link_to "Edit Wishlist", new_animal_wish_path(@animal) %> <%# what resource and path should this optimally be? %>

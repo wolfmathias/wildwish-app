@@ -1,0 +1,4 @@
+<% current_user.keeper.animals.each do |animal| %> <%# edit this to not only be keeper animals %>
+    <%= render partial: 'animal', locals: {animal: animal} %>
+    <%= link_to "More Info", animal_path(animal) %>
+<% end %>
