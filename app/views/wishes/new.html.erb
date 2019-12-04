@@ -4,3 +4,9 @@ display collection check boxes of toys
 each item should have link to toy with more info
 
 -->
+
+<%= form_with model: @animal do |f| %>
+    <label>Select toys for this animal's wishlist:</label>
+    <%= f.collection_check_boxes :toy_ids, Toy.all, :id, :id %><br>
+    <%= f.submit "Edit Wishlist" %>
+<% end %>
