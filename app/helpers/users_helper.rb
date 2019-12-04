@@ -14,5 +14,16 @@ module UsersHelper
       self.keeper.animals
     end
   end
-  
+
+  # role check methods
+  # only needed so checking associated models return false value instead of nil
+  # still probably not needed but whatever
+  def donor?
+    self.donor ? true : false
+  end
+
+  def keeper?
+    self.keeper ? true : false
+  end 
+
 end
