@@ -1,4 +1,20 @@
-<% current_user.keeper.animals.each do |animal| %> <%# edit this to not only be keeper animals %>
-    <%= render partial: 'animal', locals: {animal: animal} %>
-    <%= link_to "More Info", animal_path(animal) %>
+<% if current_user.keeper? %>
+    <h2>Animals under your care:</h2>
+    <% current_user.keeper_animals.each do |animal| %> 
+        <%= render partial: 'animal', locals: {animal: animal} %><br>
+        <%= link_to "More Info", animal_path(animal) %>
+        <br><br>
+    <% end %>
 <% end %>
+
+<% if current_user.donor? && !current_user.donor_animals.empty? %>
+    <h2>Animals you donated to:</h2>
+    <% current_user.donor_animals.each do |animal| %> 
+        <%= render partial: 'animal', locals: {animal: animal} %><br>
+        <%= link_to "More Info", animal_path(animal) %>
+        <br><br>
+    <% end %>
+<% end %>
+
+<%# add admin index also %>
+<%# refactor to partials %>
