@@ -1,0 +1,24 @@
+<h1>New keeper sign up</h1>
+
+<% if user_signed_in? %>
+    <%= form_with model: @keeper do |keeper| %>
+
+        <label>Create a profile for one of your animals and add some toys to their wishlist!</label><br>
+        
+        <%= keeper.fields_for :animals do |animal| %>  
+            <%= render partial: 'animals/form', locals: {animal: animal} %><br>
+
+            <label>Select toys for this animal's wishlist:</label><br>
+
+            <%= animal.collection_check_boxes :toy_ids, Toy.all, :id, :id %><br>
+        <% end %><br>
+        
+        <label>Shipping address fields will go here:</label><br><br>
+
+        <%= keeper.submit "Create Account" %>
+    <% end %>
+<% else %>
+    <%= link_to "Create an Account", new_user_registration_path %>
+
+    <%= link_to "Sign In", new_user_session_path %> 
+<% end %>
