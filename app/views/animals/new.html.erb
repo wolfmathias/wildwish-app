@@ -1,0 +1,12 @@
+<h1>New Animal Form</h1>
+
+<%= form_with model: @animal do |animal| %>
+
+    <%= render partial: 'form', locals: {animal: animal} %>
+
+    <label>Select toys for this animal's wishlist:</label><br>
+    <%= animal.collection_check_boxes :toy_ids, Toy.all, :id, :id %><br>
+
+    <%= animal.submit %>
+
+<% end %>
