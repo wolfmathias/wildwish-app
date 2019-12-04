@@ -1,8 +1,11 @@
 <h1>New keeper sign up</h1>
 
-<% if user_signed_in? %>
-    <%= form_with model: @keeper do |keeper| %>
+<p>Explanation here about how it works.</p>
 
+<% if user_signed_in? %>
+
+    <%= form_with model: @keeper do |keeper| %>
+        <%# fields for address here %>
         <label>Create a profile for one of your animals and add some toys to their wishlist!</label><br>
         
         <%= keeper.fields_for :animals do |animal| %>  
