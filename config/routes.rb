@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   # resources :donations
   # resources :wishes, except: [:new, :show]
   # resources :toys
-  resources :keepers, path: :users
+  resources :keepers # path: :users (aliasing path causing issues with signing out)
 
   # resources :donors
   resources :animals, except: [:show]
