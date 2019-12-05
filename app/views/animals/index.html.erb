@@ -5,6 +5,7 @@
         <%= link_to "More Info", animal_path(animal) %>
         <br><br>
     <% end %>
+    <%= link_to "Add Animals", new_animal_path %>
 <% end %>
 
 <% if current_user.donor? && !current_user.donor_animals.empty? %>
@@ -15,6 +16,8 @@
         <br><br>
     <% end %>
 <% end %>
+
+<%= link_to "Back to Account", user_path(current_user) %>
 
 <%# add admin index also %>
 <%# refactor to partials %>

@@ -1,7 +1,7 @@
 <h1>This is the landing page.</h1>
 
-<%= link_to "Create an Account", new_user_registration_path %>
+<%= link_to "Create an Account", new_user_registration_path unless user_signed_in?%>
 
-<%= link_to "Sign In", new_user_session_path %> 
+<%= link_to "Sign In", new_user_session_path unless user_signed_in?%> 
 
 <p>Landing page will contain wish items with donation options for each</p>
