@@ -10,6 +10,9 @@
   </head>
 
   <body>
+    <%# I hate the nav links in the header here. FIX! %>
+    <header><%= link_to "Home", root_path %> <%= link_to "Profile", user_path(current_user) if user_signed_in? %> <%= link_to "Sign Out", destroy_user_session_path if user_signed_in? %></header>
     <%= yield %>
+    
   </body>
 </html>

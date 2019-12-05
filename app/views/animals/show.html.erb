@@ -5,3 +5,7 @@
 <%= link_to "Edit Animal Profile", edit_animal_path %>
 <br>
 <%= link_to "Return to Index", animals_path %> 
+<br>
+
+
+<%= button_to "Delete", @animal, method: :delete, confirm: "Are you sure?" %>
