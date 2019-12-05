@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
   
   # resources :donations
-  resources :wishes, except: [:new, :show]
+  # resources :wishes, except: [:new, :show]
   # resources :toys
-  resources :keepers
+  resources :keepers, path: :users
+
   # resources :donors
   resources :animals, except: [:show]
+  delete 'animals/:id', to: 'animals#destroy', as: :destroy_animal
+  
   
   # nested resources for new animal wish
   resources :animals, only: [:show] do
