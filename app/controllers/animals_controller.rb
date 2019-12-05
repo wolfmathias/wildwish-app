@@ -1,7 +1,7 @@
 class AnimalsController < ApplicationController
     # add authentication and authorization checks before appropriate methods
     # use cancancan to set resources
-    before_action :set_animal, only: [:show, :edit, :update]
+    before_action :set_animal, only: [:show, :edit, :update, :destroy]
 
     def new
         @animal = current_user.keeper.animals.build
@@ -22,6 +22,11 @@ class AnimalsController < ApplicationController
         else
             render 'animals/edit'
         end
+    end
+
+    def destroy
+        @animal.destroy
+        redirect_to animals_path
     end
 
     private
