@@ -7,5 +7,15 @@ class WishesController < ApplicationController
         @animal = Animal.find_by(id: params[:animal_id])
     end
 
-    
+    def edit
+    end
+
+    def show
+        @wish = Wish.find_by(id: params[:id])
+    end
+
+    def index
+        #admin only action
+    end
+
 end
