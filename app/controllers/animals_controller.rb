@@ -9,6 +9,9 @@ class AnimalsController < ApplicationController
 
     def create
         @animal = current_user.keeper.animals.build(animal_params)
+        if @animal.species == "Tiger"
+            puts "Made a kitty =^.^="
+        end
         if @animal.save
             redirect_to animal_path(@animal)
         else
@@ -17,6 +20,7 @@ class AnimalsController < ApplicationController
     end
 
     def update 
+        
         if @animal.update(animal_params)
             redirect_to animal_path(@animal)
         else
