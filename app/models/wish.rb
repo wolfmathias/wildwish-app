@@ -6,4 +6,6 @@ class Wish < ApplicationRecord
     has_many :donors, through: :donations
     has_one :user, through: :animal
     
+    # statuses: new, active, funded, ordered, shipped, delivered, fulfilled
+    
 end
