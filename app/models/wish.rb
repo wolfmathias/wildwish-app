@@ -4,8 +4,11 @@ class Wish < ApplicationRecord
     belongs_to :toy
     has_many :donations
     has_many :donors, through: :donations
-    has_one :user, through: :animal
     
     # statuses: new, active, funded, ordered, shipped, delivered, fulfilled
     
+    def keeper_id
+        self.animal.keeper.id
+    end
+
 end
