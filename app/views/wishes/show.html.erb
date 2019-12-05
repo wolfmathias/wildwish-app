@@ -1,0 +1,5 @@
+<b>Wish ID: </b><%= @wish.id %><br>
+<b>Animal: </b><%= @wish.animal.name %><br>
+<b>Toy: </b><%= @wish.toy_id %>
+<br>
+<%= link_to "Return to Animal Profile", animal_path(@wish.animal) %>
