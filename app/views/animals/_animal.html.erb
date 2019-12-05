@@ -5,5 +5,6 @@
 <%= animal.bio %><br>
 <b>Toys in wishlist:</b>
 <%# render partial for toys %>
-<%= animal.toy_ids %>
-
+<% animal.wishes.each do |wish| %>
+    <%= link_to "#{wish.toy_id}", animal_wish_path(animal, wish) %>
+<% end %>
