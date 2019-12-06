@@ -1,48 +1,48 @@
 class ApplicationController < ActionController::Base
   
   # Google API secrets
-  def google_secrets
-    Google::APIClient::ClientSecrets.new(
-      {
-        "web" =>
-          {
-            "access_token" => current_user.token,
-            "refresh_token" => current_user.refresh_token,
-            "client_id" => Rails.application.secrets[:google_client_id],
-            "client_secret" => Rails.application.secrets[:google_secret]
-          }
-      }
-    )
-  end
+  # def google_secrets
+  #   Google::APIClient::ClientSecrets.new(
+  #     {
+  #       "web" =>
+  #         {
+  #           "access_token" => current_user.token,
+  #           "refresh_token" => current_user.refresh_token,
+  #           "client_id" => Rails.application.secrets[:google_client_id],
+  #           "client_secret" => Rails.application.secrets[:google_secret]
+  #         }
+  #     }
+  #   )
+  # end
 
 
-  def google_people_service
-    People::PeopleServiceService.new
-  end
+  # def google_people_service
+  #   People::PeopleServiceService.new
+  # end
 
 
-  # Google contact list (for invitations) | not being used yet
-  People = Google::Apis::PeopleV1
-  def contacts
-    secrets = Google::APIClient::ClientSecrets.new(
-      {
-        "web" =>
-          {
-            "access_token" => current_user.token,
-            "refresh_token" => current_user.refresh_token,
-            "client_id" => Rails.application.secrets[:google_client_id],
-            "client_secret" => Rails.application.secrets[:google_secret]
-          }
-      }
-    )
-    service = People::PeopleServiceService.new
-    service.authorization = secrets.to_authorization
-    response = service.list_person_connections(
-      'people/me',
-       person_fields: ['names', 'emailAddresses', 'phoneNumbers']
-    )
-    render json: response
-  end
+  # # Google contact list (for invitations) | not being used yet
+  # People = Google::Apis::PeopleV1
+  # def contacts
+  #   secrets = Google::APIClient::ClientSecrets.new(
+  #     {
+  #       "web" =>
+  #         {
+  #           "access_token" => current_user.token,
+  #           "refresh_token" => current_user.refresh_token,
+  #           "client_id" => Rails.application.secrets[:google_client_id],
+  #           "client_secret" => Rails.application.secrets[:google_secret]
+  #         }
+  #     }
+  #   )
+  #   service = People::PeopleServiceService.new
+  #   service.authorization = secrets.to_authorization
+  #   response = service.list_person_connections(
+  #     'people/me',
+  #      person_fields: ['names', 'emailAddresses', 'phoneNumbers']
+  #   )
+  #   render json: response
+  # end
 
 
   # rescue from cancan accessdenied exception
