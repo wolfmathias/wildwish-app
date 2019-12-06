@@ -1,0 +1,10 @@
+<h2>Donate to Wishes</h2>
+
+<p>This section will contain a list of active wishes as cards. Wishes are set to active by 
+controller and model logic (first they are selected at random to make it easy). Only a select 
+number of wishes are active at any one time so donations are funnelled to be as effective as possible.</p>
+
+<% Wish.active.each do |wish| %>
+    <%= render partial: 'wishes/wish', locals: {wish: wish} %><br>
+    <%= link_to "More Info", animal_path(wish.animal) %><br><br>
+<% end %>
