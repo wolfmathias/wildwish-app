@@ -36,10 +36,14 @@ gem 'jbuilder', '~> 2.5'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
+# Use omniauth with google
 gem 'omniauth-google-oauth2', '~> 0.2.2'
+gem 'google-api-client'
 
+# cancan for user authorization
 gem 'cancancan'
 
+# set ENV variables in application.yml
 gem 'figaro'
 
 group :development, :test do
