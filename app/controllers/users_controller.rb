@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    before_action :authenticate_user!
+    before_action :authenticate_user!, except: [:home]
     
     def show
         if current_user.keeper?
