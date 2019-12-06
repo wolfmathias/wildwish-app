@@ -7,8 +7,12 @@ class Wish < ApplicationRecord
     
     # statuses: new, active, funded, ordered, shipped, delivered, fulfilled
     
+    scope :active, -> { where(status: 'active')}
+    
     def keeper_id
         self.animal.keeper.id
     end
+
+    # freeze editing of certain attributes once status changes
 
 end
