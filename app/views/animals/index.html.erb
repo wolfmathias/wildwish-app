@@ -15,6 +15,8 @@
         <%= link_to "More Info", animal_path(animal) %>
         <br><br>
     <% end %>
+<% else %>
+    <h2>You haven't donated to any animals yet. Use controller to redirect?</h2>
 <% end %>
 
 <%= link_to "Back to Account", user_path(current_user) %>
