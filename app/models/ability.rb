@@ -2,12 +2,25 @@
 
 class Ability
   include CanCan::Ability
+  
 
   def initialize(user)
-    
+    # users can see index of active or fulfilled wishes
+    # cannot view new wishes yet (change this later maybe)
+    can :read, Wish, { status: "fulfilled", status: "active" }
+    can :read, Animal
+    can :create, Donation
+
+    #can view own donations
+    if user.present? && user.donor?
+      can :read, Donation, donor_id: user.donor.id
+    end
+
     if user.keeper?
       can :manage, Animal, keeper_id: user.keeper.id
-      can :manage, Wish, keeper_id: user.keeper.id
+      can :read, Wish, { keeper_id: user.keeper.id }
+      can :update, Wish, { keeper_id: user.keeper.id, status: "delivered" }
+      can :manage, Wish, { keeper_id: user.keeper.id, status: "new" } # make conditionals for keepers editing certain wishes
     end
     
     # Define abilities for the passed in user here. For example:
