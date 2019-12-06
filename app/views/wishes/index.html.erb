@@ -1,0 +1,16 @@
+<h1>Wish Index</h1>
+
+<p>This page will contain wishes displayed as cards.  
+    Card will also have a link to the animal's profile page. Users can only see wishes that have been fulfilled or active (if they have donated to
+    a wish, then by definition the wish is also either fulfilled or active.</p>
+
+<% if current_user.donor? %>
+    <%= render partial: 'donor_index', locals: {donor: current_user.donor} %>
+<% end %>
+<% if current_user.keeper? %>
+    <%= render partial: 'keeper_index', locals: {keeper: current_user.keeper} %>
+<% end %>
+
+<%= render partial: 'active_index' %>
+
+<%= render partial: 'fulfilled_index' %>
