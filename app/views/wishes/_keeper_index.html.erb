@@ -1,0 +1,8 @@
+<h2>Wishes in your animals' wishlists to:</h2>
+
+<p>This section will contain a list of wishes in your wishlist. Will probably organize with sorting by using scopes.</p>
+
+<% keeper.wishes.each do |wish| %>
+    <%= render partial: 'wishes/wish', locals: {wish: wish} %><br>
+    <%= link_to "More Info", animal_path(wish.animal) %><br><br>
+<% end %>
