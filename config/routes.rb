@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   
   # for wish index
   resources :wishes, only: [:index]
+
+  resources :donations, only: [:index, :show, :create]
   
   # nested resources for new animal wish
   resources :animals, only: [:show] do
