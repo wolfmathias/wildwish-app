@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_06_203953) do
+ActiveRecord::Schema.define(version: 2019_12_07_023751) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "street_1"
@@ -95,6 +95,7 @@ ActiveRecord::Schema.define(version: 2019_12_06_203953) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "status", default: "new"
+    t.string "image_url"
     t.index ["animal_id"], name: "index_wishes_on_animal_id"
     t.index ["toy_id"], name: "index_wishes_on_toy_id"
   end
