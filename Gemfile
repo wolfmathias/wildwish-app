@@ -41,7 +41,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'therubyracer'
 gem 'devise'
 # Use omniauth with google
-gem 'omniauth-google-oauth2'
+gem 'omniauth-google-oauth2', '~> 0.8'
 # gem 'google-api-client'
 
 # cancan for user authorization
