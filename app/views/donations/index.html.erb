@@ -1,0 +1,8 @@
+<h1>Donation Index</h1>
+
+<p>This page displays an index of donations that the logged in user is able to see.
+    Zookeepers do not get a list of donations towards their animals.</p>
+
+<% @donations.each do |donation| %>
+    <%= render partial: 'donations/donation', locals: {donation: donation} %>
+<% end %>
