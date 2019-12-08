@@ -8,6 +8,7 @@ The form will include a checkbox for the option to create an account once the do
     <%# fields for Donor, either fill if user signed in or create one with form %>
     <%= donation.hidden_field :wish_id %>
     <%= donation.fields_for :donor_attributes, @donation.donor do |donor| %>
+        <%= donor.hidden_field :id %>
         <%= donor.label "Your Name" %>
         <%= donor.text_field :first_name %> 
         <%= donor.text_field :last_name %>
