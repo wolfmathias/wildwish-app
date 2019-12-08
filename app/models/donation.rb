@@ -3,10 +3,12 @@ class Donation < ApplicationRecord
     belongs_to :wish
 
     def donor_attributes=(donor_atts)
-        if donor = Donor.find_or_create_by(email: donor_atts[:email])
-            donor.first_name = donor_atts[:first_name]
-            donor.last_name = donor_atts[:last_name]
-            donor.save
-        end
+        # find donor by id in case user enters different email than what they have used previously
+        # then use rest of provided info to update donor
+        # currently, many donor models can have same email if they were created without also creating an account
+        self.donor = Donor.find_or_create_by(id: donor_atts[:id].to_i)
+        self.donor.update(donor_atts)
     end
 end
+
+# donation = Donation.new(:wish_id => "8", :donor_attributes =>[:id => "4", :first_name=> "Bruce", :last_name => "Wayne", :email => "brucewayne@batcave.com"])

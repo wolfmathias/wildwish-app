@@ -9,15 +9,25 @@ class DonationsController < ApplicationController
         else
             donor = Donor.new
         end
-         @donation = donor.donations.build(wish_id: params[:wish_id])
-         
+        # donor.save
+        @donation = donor.donations.build(wish_id: params[:wish_id])
+        
     end
 
     def create
-        # raise params.inspect
-        @donation = Donation.create(donation_params)
-        print @donation.errors
-        byebug
+        # create and save donation, if failed rerender form with errors
+        # if user has account and is signed in, redirect to profile (change to donations index?)
+        # if donation was made without creating account, redirect to home page
+        @donation = Donation.new(donation_params)
+        if @donation.save
+            if user_signed_in?
+                redirect_to user_path(current_user) 
+            else
+                redirect_to root_path
+            end
+        else
+            render "new"
+        end
     end
 
     # /animals/5/wishes/8/donations/new
@@ -25,6 +35,6 @@ class DonationsController < ApplicationController
     private
 
     def donation_params
-        params.require(:donation).permit(:wish_id, donor_attributes: [:first_name, :last_name, :email])
+        params.require(:donation).permit(:wish_id, donor_attributes: [:id, :first_name, :last_name, :email])
     end
 end
