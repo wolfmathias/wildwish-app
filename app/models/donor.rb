@@ -6,4 +6,5 @@ class Donor < ApplicationRecord
     has_many :toys, through: :wishes
     has_many :animals, through: :wishes
     
+    #accepts_nested_attributes_for :donations
 end

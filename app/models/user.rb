@@ -12,13 +12,17 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   # create methods
-  def build_new_donor
+  # this overrides ActiveRecords 'build'_donor method
+  # make sure donor is set with attribute names according to user fields
+  # provides gracefull fallback if donor already exists
+  def set_donor
     if self.donor.nil?
-    self.build_donor(
+    donor = self.build_donor(
       first_name: self.first_name, 
       last_name: self.last_name, 
       email: self.email
     )
+    donor.save
     end
     self.donor # ensure the donor is returned regardless if it was created or previously existed
   end
