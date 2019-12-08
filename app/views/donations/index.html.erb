@@ -5,4 +5,5 @@
 
 <% @donations.each do |donation| %>
     <%= render partial: 'donations/donation', locals: {donation: donation} %>
+    <%= link_to "View Donation", donation_path(donation) %>
 <% end %>
