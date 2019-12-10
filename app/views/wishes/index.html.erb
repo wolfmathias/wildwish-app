@@ -4,11 +4,18 @@
     Card will also have a link to the animal's profile page. Users can only see wishes that have been fulfilled or active (if they have donated to
     a wish, then by definition the wish is also either fulfilled or active.</p>
 
-<% if current_user.donor? %>
-    <%= render partial: 'donor_index', locals: {donor: current_user.donor} %>
-<% end %>
-<% if current_user.keeper? %>
-    <%= render partial: 'keeper_index', locals: {keeper: current_user.keeper} %>
+<!-- 
+Render these partials into optional tabs
+Or render a user nav bar with links to each
+Use js to work with on front end
+-->
+<% if user_signed_in? %>
+    <% if current_user.donor? %>
+        <%= render partial: 'donor_index', locals: {donor: current_user.donor} %>
+    <% end %>
+    <% if current_user.keeper? %>
+        <%= render partial: 'keeper_index', locals: {keeper: current_user.keeper} %>
+    <% end %>
 <% end %>
 
 <%= render partial: 'active_index' %>
