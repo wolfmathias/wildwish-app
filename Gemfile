@@ -10,7 +10,7 @@ gem 'dotenv-rails', groups: [:development, :test]
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use Puma as the app server
-gem 'puma', '~> 3.11'
+gem "puma", ">= 3.12.2"
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -40,6 +40,9 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'therubyracer'
 gem 'devise'
+
+# FIX OMNIAUTH VULNERABILITY AND DON'T COMMIT THIS COMMENT UNTIL IT'S DONE
+# I'M SORRY I HAD TO COMMIT TO SAVE PUMA'S VERSION UPGRADE
 # Use omniauth with google
 gem 'omniauth-google-oauth2', '~> 0.8'
 # gem 'google-api-client'
