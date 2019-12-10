@@ -2,7 +2,7 @@ class WishesController < ApplicationController
 
     # display form for creating new wish, set animal for collection
     # route needs to be nested within animals resource
-    before_action :authenticate_user!
+    before_action :authenticate_user!, except: [:index]
     load_and_authorize_resource except: [:index]
 
     def index
