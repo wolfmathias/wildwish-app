@@ -1,6 +1,12 @@
 class DonationsController < ApplicationController
     load_and_authorize_resource only: [:index, :show]
 
+    def search
+        @animal = Animal.find_by(name: params[:name])
+        @donations = @animal.donations
+        render "index"
+    end
+
     def show
     end
 

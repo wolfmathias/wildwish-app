@@ -23,3 +23,9 @@
 
 <%# add admin index also %>
 <%# refactor to partials %>
+
+<h3>Search for an animal you donated to:</h3>
+<%= form_tag donations_search_path do %>
+    <%= text_field_tag :name %>
+    <%= submit_tag "Search"%>
+<% end %> 

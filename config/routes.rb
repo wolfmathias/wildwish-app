@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   # resources :donors
   resources :animals, except: [:show]
   delete 'animals/:id', to: 'animals#destroy', as: :destroy_animal
+
+  # get 'animals/:id/wishes/:wishes_id', to: 'wishes#show'
+  post 'donations/search', to: 'donations#search', as: :donations_search
   
   # for wish index
   resources :wishes, only: [:index]
