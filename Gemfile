@@ -7,8 +7,8 @@ ruby '2.6.1'
 gem 'rails', '~> 5.2.2'
 # use dotenv to set environment variables
 gem 'dotenv-rails', groups: [:development, :test]
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+# Use postgres
+gem 'pg'
 # Use Puma as the app server
 gem "puma", ">= 3.12.2"
 # Use SCSS for stylesheets
@@ -38,7 +38,8 @@ gem 'jbuilder', '~> 2.5'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
-gem 'therubyracer'
+# therubyracer throwing dependency issues with libv8
+# gem 'therubyracer'
 gem 'devise'
 
 # FIX OMNIAUTH VULNERABILITY AND DON'T COMMIT THIS COMMENT UNTIL IT'S DONE
