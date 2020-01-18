@@ -1,6 +1,7 @@
 class Keeper < ApplicationRecord
     # associations
     belongs_to :user
+    belongs_to :zoo
     # has_many :addresses
     has_many :animals
     has_many :wishes, through: :animals

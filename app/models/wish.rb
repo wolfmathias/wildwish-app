@@ -1,5 +1,6 @@
 class Wish < ApplicationRecord
     # associations
+    belongs_to :zoo
     belongs_to :animal
     belongs_to :toy
     has_many :donations
