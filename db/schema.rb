@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_07_023751) do
+ActiveRecord::Schema.define(version: 2020_01_17_233654) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "addresses", force: :cascade do |t|
     t.string "street_1"
@@ -27,15 +30,15 @@ ActiveRecord::Schema.define(version: 2019_12_07_023751) do
     t.string "name"
     t.string "species"
     t.string "bio"
-    t.integer "keeper_id"
+    t.bigint "keeper_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["keeper_id"], name: "index_animals_on_keeper_id"
   end
 
   create_table "donations", force: :cascade do |t|
-    t.integer "donor_id", null: false
-    t.integer "wish_id"
+    t.bigint "donor_id", null: false
+    t.bigint "wish_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["donor_id"], name: "index_donations_on_donor_id"
@@ -46,16 +49,17 @@ ActiveRecord::Schema.define(version: 2019_12_07_023751) do
     t.string "first_name"
     t.string "last_name"
     t.string "email"
-    t.integer "user_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_donors_on_user_id"
   end
 
   create_table "keepers", force: :cascade do |t|
-    t.integer "user_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "zoo_id"
     t.index ["user_id"], name: "index_keepers_on_user_id"
   end
 
@@ -90,14 +94,28 @@ ActiveRecord::Schema.define(version: 2019_12_07_023751) do
   end
 
   create_table "wishes", force: :cascade do |t|
-    t.integer "animal_id"
-    t.integer "toy_id"
+    t.bigint "animal_id"
+    t.bigint "toy_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "status", default: "new"
     t.string "image_url"
+    t.integer "zoo_id"
     t.index ["animal_id"], name: "index_wishes_on_animal_id"
     t.index ["toy_id"], name: "index_wishes_on_toy_id"
   end
 
+  create_table "zoos", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "animals", "keepers"
+  add_foreign_key "donations", "donors"
+  add_foreign_key "donations", "wishes"
+  add_foreign_key "donors", "users"
+  add_foreign_key "keepers", "users"
+  add_foreign_key "wishes", "animals"
+  add_foreign_key "wishes", "toys"
 end
