@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :zoos
   # resources :donations
   # resources :wishes, except: [:new, :show]
   # resources :toys
