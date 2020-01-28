@@ -1,3 +1,4 @@
 class Address < ApplicationRecord
-    belongs_to :keeper
+    belongs_to :zoo
+
 end

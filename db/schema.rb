@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(version: 2020_01_28_161048) do
     t.string "country"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "zoo_id"
+    t.index ["zoo_id"], name: "index_addresses_on_zoo_id"
   end
 
   create_table "animals", force: :cascade do |t|
@@ -112,10 +114,9 @@ ActiveRecord::Schema.define(version: 2020_01_28_161048) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "address_id"
-    t.index ["address_id"], name: "index_zoos_on_address_id"
   end
 
+  add_foreign_key "addresses", "zoos"
   add_foreign_key "animals", "keepers"
   add_foreign_key "donations", "donors"
   add_foreign_key "donations", "wishes"
@@ -123,5 +124,4 @@ ActiveRecord::Schema.define(version: 2020_01_28_161048) do
   add_foreign_key "keepers", "users"
   add_foreign_key "wishes", "animals"
   add_foreign_key "wishes", "toys"
-  add_foreign_key "zoos", "addresses"
 end
