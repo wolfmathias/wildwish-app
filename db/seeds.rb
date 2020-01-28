@@ -39,7 +39,7 @@ end
 # Create zookeepers 
 Zoo.all.each do | zoo |
    # create random number of zookeepers for each zoo
-    rand(5).times do
+    rand(1..5).times do
         Keeper.create(zoo_id: zoo.id)
     end
 end
@@ -48,7 +48,7 @@ end
 
 
 Keeper.all.each do | keeper |
-    rand(1...10).times do
+    rand(1..10).times do
         # generate list of random names to choose from
         name_sources = [
             Faker::Creature::Cat.name,
@@ -126,11 +126,16 @@ end
 
 
 # Create wishes and associate them to animals
+# <Wish id: nil, animal_id: nil, toy_id: nil, created_at: nil, updated_at: nil, status: "new", image_url: nil, zoo_id: nil> 
+Animal.all.each do | animal |
+    Wish.create(animal_id: animal.id, toy_id: Toy.all.sample.id)
+end
 
 
-
-# Set some wishes as active
-
+# Set some wishes as active (3 wishes are active at a time)
+rand(1..3).times do
+    Wish.all.sample.activate
+end
 
 
 # Create previously fulfilled wishes for showcase
