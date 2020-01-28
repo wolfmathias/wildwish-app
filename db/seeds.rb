@@ -36,15 +36,13 @@ zoos.each do |name, state, country|
     Zoo.create(name: name, address_attributes: {state: state, country: country})
 end
 
-
-# Set addresses for zoos
-
-
-
-
 # Create zookeepers
-
-
+Zoo.all.each do | zoo |
+   # create random number of zookeepers for each zoo
+    rand(5).times do
+        Keeper.create(zoo_id: zoo.id)
+    end
+end
 
 # Create animals
 
