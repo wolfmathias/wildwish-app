@@ -15,6 +15,11 @@ class Wish < ApplicationRecord
         self.animal.keeper.id
     end
 
-    # freeze editing of certain attributes once status changes
+    def activate
+        self.status = 'active'
+        self.save
+    end
+
+    # TODO: freeze editing of certain attributes once status changes
 
 end

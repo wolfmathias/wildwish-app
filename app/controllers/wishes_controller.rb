@@ -28,7 +28,7 @@ class WishesController < ApplicationController
 
     # display all wishes that are set to active
     def active
-
+        
     end
 
     # display all fulfilled wishes
