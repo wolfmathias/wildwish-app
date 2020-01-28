@@ -5,3 +5,34 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+# Create zoos
+
+
+
+# Set addresses for zoos
+
+
+
+# Create zookeepers
+
+
+
+# Create animals
+
+
+
+# Create toys
+
+
+
+# Create wishes and associate them to animals
+
+
+
+# Set some wishes as active
+
+
+
+# Create previously fulfilled wishes for showcase
