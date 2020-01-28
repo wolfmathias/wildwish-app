@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_28_155458) do
+ActiveRecord::Schema.define(version: 2020_01_28_161048) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -112,6 +112,8 @@ ActiveRecord::Schema.define(version: 2020_01_28_155458) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "address_id"
+    t.index ["address_id"], name: "index_zoos_on_address_id"
   end
 
   add_foreign_key "animals", "keepers"
@@ -121,4 +123,5 @@ ActiveRecord::Schema.define(version: 2020_01_28_155458) do
   add_foreign_key "keepers", "users"
   add_foreign_key "wishes", "animals"
   add_foreign_key "wishes", "toys"
+  add_foreign_key "zoos", "addresses"
 end
