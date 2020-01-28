@@ -125,16 +125,17 @@ toy_list.each do | toy |
 end
 
 
-# Create wishes and associate them to animals
-# <Wish id: nil, animal_id: nil, toy_id: nil, created_at: nil, updated_at: nil, status: "new", image_url: nil, zoo_id: nil> 
+# Create random number of wishes for each animal. Toy_id is random
 Animal.all.each do | animal |
-    Wish.create(animal_id: animal.id, toy_id: Toy.all.sample.id)
+    rand(1..10).times do
+        animal.wishes.create(toy_id: rand(1..11))
+    end
 end
 
 
 # Set some wishes as active (3 wishes are active at a time)
-rand(1..3).times do
-    Wish.all.sample.activate
+3.times do
+    Wish.unfunded.sample.activate
 end
 
 
