@@ -2,8 +2,8 @@ class WishesController < ApplicationController
 
     # display form for creating new wish, set animal for collection
     # route needs to be nested within animals resource
-    before_action :authenticate_user!, except: [:index]
-    load_and_authorize_resource except: [:index]
+    before_action :authenticate_user!, except: [:index, :active]
+    load_and_authorize_resource except: [:index, :active]
 
     def index
         
@@ -28,7 +28,8 @@ class WishesController < ApplicationController
 
     # display all wishes that are set to active
     def active
-        
+        wishes = Wish.active
+        render json: wishes, include: [:animal], except: [:created_at, :updated_at]
     end
 
     # display all fulfilled wishes

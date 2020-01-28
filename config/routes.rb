@@ -13,8 +13,9 @@ Rails.application.routes.draw do
   # get 'animals/:id/wishes/:wishes_id', to: 'wishes#show'
   post 'donations/search', to: 'donations#search', as: :donations_search
   
-  # for wish index
+  # for wishes
   resources :wishes, only: [:index]
+  get 'wishes/active', to: 'wishes#active'
 
   resources :donations, only: [:index, :show, :create]
   
