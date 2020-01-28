@@ -36,7 +36,7 @@ zoos.each do |name, state, country|
     Zoo.create(name: name, address_attributes: {state: state, country: country})
 end
 
-# Create zookeepers
+# Create zookeepers 
 Zoo.all.each do | zoo |
    # create random number of zookeepers for each zoo
     rand(5).times do
@@ -47,6 +47,29 @@ end
 # Create animals
 
 
+Keeper.all.each do | keeper |
+    rand(10).times do
+        name_sources = [
+            Faker::Creature::Cat.name,
+            Faker::Creature::Dog.name,
+            Faker::Creature::Horse.name,
+            Faker::TvShows::GameOfThrones.dragon,
+            Faker::TvShows::TheExpanse.ship,
+            Faker::TvShows::VentureBros.character,
+            Faker::TvShows::StarTrek.character,
+            Faker::TvShows::RickAndMorty.character,
+            Faker::TvShows::DrWho.character,
+            Faker::TvShows::BojackHorseman.character,
+            Faker::Movies::StarWars.character,
+            Faker::Movies::LordOfTheRings.character,
+            Faker::Games::Zelda.character,
+            Faker::Games::Witcher.character,
+            Faker::Games::Fallout.character,
+            Faker::Books::Lovecraft.deity
+        ]
+        Animal.create(name: name_sources.sample, species: Faker::Creature::Animal.name.capitalize, keeper_id: keeper.id)
+    end
+end
 
 # Create toys
 
