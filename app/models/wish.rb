@@ -9,6 +9,7 @@ class Wish < ApplicationRecord
     # statuses: new, active, funded, ordered, shipped, delivered, fulfilled
     
     scope :active, -> { where(status: 'active')}
+    scope :fulfilled, -> { where(status: 'fulfilled')}
     
     def keeper_id
         self.animal.keeper.id

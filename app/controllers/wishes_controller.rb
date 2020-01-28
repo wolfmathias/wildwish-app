@@ -26,6 +26,16 @@ class WishesController < ApplicationController
         
     end
 
+    # display all wishes that are set to active
+    def active
+
+    end
+
+    # display all fulfilled wishes
+    def fulfilled
+
+    end
+
     private
 
     def wish_params
