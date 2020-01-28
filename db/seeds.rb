@@ -8,10 +8,37 @@
 
 
 # Create zoos
+zoos = [
+    ["Denver Zoo", "Colorado", "USA"],
+    ["Cheyenne Mountain Zoo", "Colorado", "USA"],
+    ["Phoenix Zoo", "Arizona", "USA"],
+    ["Out of Africa Wildlife Park", "Arizona", "USA"],
+    ["Bearizona", "Arizona", "USA"],
+    ["Wildlife Waystation", "California", "USA"],
+    ["Forever Wild Wildlife Sanctuary", "California", "USA"],
+    ["San Diego Zoo", "California", "USA"],
+    ["Shambala Preserve", "California", "USA"],
+    ["Cat Tales Zoo", "Washington", "USA"],
+    ["Point Defiance Zoo", "Washington", "USA"],
+    ["Triple D", "Montana", "USA"],
+    ["Oregon Wildlife Sanctuary", "Oregon", "USA"],
+    ["Carolina Tiger Rescue", "North Carolina", "USA"],
+    ["Tiger World", "North Carolina", "USA"],
+    ["Safe Haven Wildlife Sanctuary", "Nevada", "USA"],
+    ["Roosevelt Park Zoo", "North Dakota", "USA"],
+    ["Austin City Zoo", "Texas", "USA"],
+    ["Turpentine Creek Wildlife Sanctuary", "Arkansas", "USA"],
+    ["Department of Wildlife", "Rachaburi", "Thailand"],
+    ["Emirates Park Zoo", "Abu Dhabi", "United Arab Emirates"]
+]
 
+zoos.each do |name, state, country|
+    Zoo.create(name: name, address_attributes: {state: state, country: country})
+end
 
 
 # Set addresses for zoos
+
 
 
 
