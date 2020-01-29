@@ -15,5 +15,20 @@ module WildwishApp
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
+
+    # set api and CORS
+    config.api_only = true
+
+    # settings to prevent omniauth:no_session_error when fetching resources
+    config.middleware.insert_after ActiveRecord::Migration::CheckPending, ActionDispatch::Cookies
+    config.middleware.insert_after ActionDispatch::Cookies, ActionDispatch::Session::CookieStore
+
+    # setting for CORS
+    config.middleware.insert_before 0, Rack::Cors do
+      allow do
+        origins '*'
+        resource '*', :headers => :any, :methods => [:get, :post, :options]
+      end
+    end
   end
 end

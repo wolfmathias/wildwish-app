@@ -29,7 +29,7 @@ class WishesController < ApplicationController
     # display all wishes that are set to active
     def active
         wishes = Wish.active
-        render json: wishes, include: [:animal], except: [:created_at, :updated_at]
+        render json: wishes, include: [:animal, :toy]
     end
 
     # display all fulfilled wishes
