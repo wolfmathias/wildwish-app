@@ -40,7 +40,6 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 # therubyracer throwing dependency issues with libv8
 # gem 'therubyracer'
-gem 'devise'
 
 # FIX OMNIAUTH VULNERABILITY AND DON'T COMMIT THIS COMMENT UNTIL IT'S DONE
 # I'M SORRY I HAD TO COMMIT TO SAVE PUMA'S VERSION UPGRADE
