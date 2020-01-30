@@ -5,7 +5,7 @@ class Donation < ApplicationRecord
     def donor_attributes=(donor_atts)
         # find donor by id in case user enters different email than what they have used previously
         # then use rest of provided info to update donor
-        # currently, many donor models can have same email if they were created without also creating an account
+        # currently, many donor models can have same email if they were created without also creating an account   
         self.donor = Donor.find_or_create_by(id: donor_atts[:id])
         self.donor.first_name = donor_atts[:first_name]
         self.donor.last_name = donor_atts[:last_name]
