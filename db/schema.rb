@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_30_032620) do
+ActiveRecord::Schema.define(version: 2020_01_30_160458) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -107,6 +107,9 @@ ActiveRecord::Schema.define(version: 2020_01_30_032620) do
     t.string "status", default: "new"
     t.string "image_url"
     t.integer "zoo_id"
+    t.string "message"
+    t.float "current_funding", default: 0.0
+    t.float "total_to_fund"
     t.index ["animal_id"], name: "index_wishes_on_animal_id"
     t.index ["toy_id"], name: "index_wishes_on_toy_id"
   end

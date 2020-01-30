@@ -128,7 +128,9 @@ end
 # Create random number of wishes for each animal. Toy_id is random
 Animal.all.each do | animal |
     rand(1..10).times do
-        animal.wishes.create(toy_id: rand(1..11))
+        wish = animal.wishes.new(toy_id: rand(1..11))
+        wish.total_to_fund = wish.toy.cost
+        wish.save
     end
 end
 
