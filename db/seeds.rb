@@ -75,47 +75,47 @@ end
 # Create toys
 toy_list = [
     {name: "Boomer Ball",
-    cost: "$30",
+    cost: 30.00,
     description: "A nearly indestructible plastic ball. This one is a foot in diameter, great for all sorts of animals!"
     },
     {name: "Bungee Toy",
-    cost: "$20",
+    cost: 20.00,
     description: "A durable stretchy firehose. Attach it to a fixture for a game of tug of war."
     },
     {name: "Hammock",
-    cost: "$80",
+    cost: 80.00,
     description: "A hammock made of interwoven straps. Lounge around while eating bamboo shoots!"
     },
     {name: "Firehose Cube",
-    cost: "$10",
+    cost: 10.00,
     description: "Recycled firehose woven into a dense, heavy cube. Good for strong animals."
     },
     {name: "Floaty Toy",
-    cost: "$25",
+    cost: 25.00,
     description: "Buoyant toy, great for marine animals or anyone who likes to play in the pool."
     },
     {name: "Treat Dispenser",
-    cost: "$30",
+    cost: 30.00,
     description: "This rolls around, dropping delicious treats as it goes."
     },
     {name: "Tube",
-    cost: "$10",
+    cost: 10.00,
     description: "It's a tube. Small animals can crawl inside it. Large animals can stick their head in it. Tuuuuuuuuubbbbeeee!!!"
     },
     {name: "Puzzle Box",
-    cost: "$40",
+    cost: 40.00,
     description: "Kind of like those toddler toys. Put the square peg into the square hole. Good for monkeys."
     },
     {name: "Rope swing",
-    cost: "$20",
+    cost: 20.00,
     description: "Attach this to the ceiling of an enclosure. Animals can swing on it or grab it and pull it."
     },
     {name: "Hidey-hole",
-    cost: "$15",
+    cost: 15.00,
     description: "Small box with a hole, kind of like a fort."
     },
     {name: "Crinkly Bag",
-    cost: "$30",
+    cost: 30.00,
     description: "Durable bag that makes noises when scrunching it, great for cats."
     }
 ]
