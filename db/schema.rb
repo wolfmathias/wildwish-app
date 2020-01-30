@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_28_161048) do
+ActiveRecord::Schema.define(version: 2020_01_30_032620) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 2020_01_28_161048) do
     t.bigint "wish_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "amount"
     t.index ["donor_id"], name: "index_donations_on_donor_id"
     t.index ["wish_id"], name: "index_donations_on_wish_id"
   end
