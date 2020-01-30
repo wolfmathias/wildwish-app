@@ -8,11 +8,17 @@ Donors will be emailed when the animal receives the toy. The receiving zookeeper
 
 # Dependencies
 
-This app uses the Devise gem for authentication and CanCanCan for authorization. Run 'bundle install' to install all dependencies.
+First ensure that Ruby is installed, and that you have the current version of Bundler with 'gem install bundler'.
+
+To install dependencies, run 'bundle install' in the 'backend' directory. 
+
+# Seed the database
+
+In the backend directory, run 'rails db:migrate' then 'rails db:seed'.
 
 # Running
 
-Run 'Rails server' in the terminal to start the server, and navigate to the port listed to view and interact with the app.
+Run 'rails server' in the terminal to start the server, and navigate to the port listed. Resources can be accessed as an API using RESTful routes ('/animals', '/wishes/active', etc)
 
 # Authors
 
