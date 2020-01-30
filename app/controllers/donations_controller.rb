@@ -26,18 +26,28 @@ class DonationsController < ApplicationController
 
     def create
         # create and save donation, if failed rerender form with errors
+        
+        # below method created before frontend build, use as reference for future methods
         # if user has account and is signed in, redirect to profile (change to donations index?)
         # if donation was made without creating account, redirect to home page
-        @donation = Donation.new(donation_params)
-        if @donation.save
-            if user_signed_in?
-                redirect_to donations_path 
-            else
-                redirect_to root_path
-            end
+        # @donation = Donation.new(donation_params)
+        # if @donation.save
+        #     if user_signed_in?
+        #         redirect_to donations_path 
+        #     else
+        #         redirect_to root_path
+        #     end
+        # else
+        #     render "new"
+        # end
+       
+        donation = Donation.new(donation_params)
+        if donation.valid?
+            donation.save
         else
-            render "new"
+            puts "Error: #{donation.errors.full_messages}"
         end
+        render json: donation
     end
 
     # /animals/5/wishes/8/donations/new
