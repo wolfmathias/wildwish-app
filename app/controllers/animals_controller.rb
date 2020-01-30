@@ -5,6 +5,8 @@ class AnimalsController < ApplicationController
     load_and_authorize_resource
 
     def index
+        animals = Animal.all
+        render json: animals
     end
 
     def new
