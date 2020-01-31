@@ -21,6 +21,9 @@ class Wish < ApplicationRecord
         self.save
     end
 
+    def current_funding
+        self.donations.pluck(:amount).reduce(:+)
+    end
     # TODO: freeze editing of certain attributes once status changes
 
 end
