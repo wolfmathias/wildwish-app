@@ -14,11 +14,13 @@ To install dependencies, run 'bundle install' in the 'backend' directory.
 
 # Seed the database
 
+This is using Postgresql for the database. Make sure Postgres is installed and running before migrating or seeding.
+
 In the backend directory, run 'rails db:migrate' then 'rails db:seed'.
 
 # Running
 
-Run 'rails server' in the terminal to start the server, and navigate to the port listed. Resources can be accessed as an API using RESTful routes ('/animals', '/wishes/active', etc)
+Run 'rails server' in the terminal to start the server. Resources can be accessed as an API using RESTful routes ('/animals', '/wishes/active', etc).
 
 # Authors
 
