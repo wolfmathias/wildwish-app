@@ -17,6 +17,9 @@ Rails.application.routes.draw do
   resources :wishes, only: [:index]
   get 'wishes/active', to: 'wishes#active'
 
+  # to reset donations for specific wish (used for JS frontend concept only)
+  post 'wishes/:id/reset_donations', to: 'wishes#reset_donations'
+
   resources :donations, only: [:index, :show, :create]
   
   # nested resources for new animal wish
