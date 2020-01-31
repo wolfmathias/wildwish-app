@@ -5,5 +5,12 @@ class Animal < ApplicationRecord
     has_many :toys, through: :wishes
     has_many :donations, through: :wishes
     has_many :donors, through: :donations
+
+    
+    # below method for frontend JS concept
+    # TOO MANY DOTS!
+    def location
+        self.keeper.zoo.address.state
+    end
     
 end
