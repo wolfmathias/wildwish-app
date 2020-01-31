@@ -10,7 +10,7 @@ class Animal < ApplicationRecord
     # below method for frontend JS concept
     # TOO MANY DOTS!
     def location
-        self.keeper.zoo.address.state
+        self.keeper.zoo.name + " - " + self.keeper.zoo.address.state + ", " + self.keeper.zoo.address.country
     end
     
 end
