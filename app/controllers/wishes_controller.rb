@@ -34,14 +34,22 @@ class WishesController < ApplicationController
 
     # display all fulfilled wishes
     def fulfilled
-
+        wishes = Wish.fulfilled
+        render json: wishes, include: [:animal, :toy]
     end
 
-    # POST method for frontend JS concept
+    # below two methods for frontend js concept
+    # DO NOT INCLUDE IN PRODUCTION
     def reset_donations
         wish = Wish.find_by(wish_params)
         wish.donations.each { |donation| donation.destroy }
         render json: wish, include: [:animal, :toy]
+    end
+
+    def reset_active_wishes
+        Donation.destroy_all
+        Wish.reset_active_wishes
+        redirect_to action: "fulfilled"
     end
 
     private
