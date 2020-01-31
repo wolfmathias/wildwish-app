@@ -19,6 +19,7 @@ Rails.application.routes.draw do
 
   # to reset donations for specific wish (used for JS frontend concept only)
   post 'wishes/:id/reset_donations', to: 'wishes#reset_donations'
+  get 'wishes/reset_active_wishes', to: 'wishes#reset_active_wishes'
 
   resources :donations, only: [:index, :show, :create]
   

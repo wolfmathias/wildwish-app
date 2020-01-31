@@ -2,8 +2,8 @@ class WishesController < ApplicationController
 
     # display form for creating new wish, set animal for collection
     # route needs to be nested within animals resource
-    before_action :authenticate_user!, except: [:index, :active, :reset_donations]
-    load_and_authorize_resource except: [:index, :active, :reset_donations]
+    before_action :authenticate_user!, except: [:index, :active, :reset_donations, :reset_active_wishes]
+    load_and_authorize_resource except: [:index, :active, :reset_donations, :reset_active_wishes]
 
     def index
         
@@ -49,7 +49,8 @@ class WishesController < ApplicationController
     def reset_active_wishes
         Donation.destroy_all
         Wish.reset_active_wishes
-        redirect_to action: "fulfilled"
+        wishes = Wish.active
+        render json: wishes, include: [:animal, :toy]
     end
 
     private
