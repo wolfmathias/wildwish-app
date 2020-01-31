@@ -21,6 +21,16 @@ class Wish < ApplicationRecord
         self.save
     end
 
+    def self.reset_active_wishes
+        Wish.active.each do |wish|
+            wish.status = 'new'
+            wish.save
+        end
+        Wish.all.sample(3).each do |wish|
+            wish.activate
+        end
+    end
+
     def current_funding
         self.donations.pluck(:amount).reduce(:+)
     end
