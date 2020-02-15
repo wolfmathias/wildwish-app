@@ -129,7 +129,6 @@ end
 Animal.all.each do | animal |
     rand(1..10).times do
         wish = animal.wishes.new(toy_id: rand(1..11))
-        wish.total_to_fund = wish.toy.cost
         wish.save
     end
 end
