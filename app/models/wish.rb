@@ -31,6 +31,10 @@ class Wish < ApplicationRecord
         end
     end
 
+    def total_to_fund
+        self.toy.cost
+    end
+
     def current_funding
         self.donations.pluck(:amount).reduce(:+)
     end
