@@ -8,17 +8,17 @@ Donors will be emailed when the animal receives the toy. The receiving zookeeper
 
 # Install dependencies
 
-With Ruby already installed, run 'bundle install' in the root directory. If you don't have Ruby, install it, then run 'gem install bundler' so you can run 'bundle install'.
+With Ruby already installed, run `bundle install` in the root directory. If you don't have Ruby, install it, then run `gem install bundler` so you can run `bundle install`.
 
 # Seed the database
 
 This is using Postgresql for the database. Make sure Postgres is installed on your machine and running before migrating or seeding.
 
-In the root directory, run 'rails db:migrate' then 'rails db:seed'.
+In the root directory, run `rails db:migrate` then `rails db:seed`.
 
 # Start the server
 
-Run 'rails server' in the terminal to start the server. Resources can be accessed as an API using RESTful routes ('/animals', '/wishes/active', etc). The routes for this branch ('js-concept-backend') are:
+Run `rails server` in the terminal to start the server. Resources can be accessed as an API using RESTful routes ('/animals', '/wishes/active', etc). The routes for this branch ('js-concept-backend') are:
 
 GET '/wishes/active'
 POST '/wishes/:id/reset_donations'
