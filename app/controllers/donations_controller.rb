@@ -42,6 +42,13 @@ class DonationsController < ApplicationController
         # end
        
         donation = Donation.new(donation_params)
+
+        # if donation.amount + wish.current_funding > wish.total_to_fund
+            # split donation and create new donation with amount overflow
+            # apply that new donation the next wish that is activated
+            # associate donor to both wishes
+
+
         if donation.valid?
             donation.save
         else
