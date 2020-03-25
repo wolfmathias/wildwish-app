@@ -36,6 +36,16 @@ zoos.each do |name, state, country|
     Zoo.create(name: name, address_attributes: {state: state, country: country})
 end
 
+# Create demo keeper for React MUI demo
+user = User.create(
+    first_name: "Paul",
+    last_name: "Blart",
+    email: "test@gmail.com",
+    password: "password"
+)
+user.build_keeper
+user.save
+
 # Create zookeepers 
 Zoo.all.each do | zoo |
    # create random number of zookeepers for each zoo
