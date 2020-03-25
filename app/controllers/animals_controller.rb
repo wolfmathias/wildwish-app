@@ -2,10 +2,14 @@ class AnimalsController < ApplicationController
     # add authentication and authorization checks before appropriate methods
     # use cancancan to set resources
     before_action :set_animal, only: [:show, :edit, :update, :destroy]
-    load_and_authorize_resource
+    # load_and_authorize_resource
 
     def index
-        animals = Animal.all
+        # animals = Animal.all
+
+        # For react demo:
+        animals = User.find_by(first_name: "Paul", last_name: "Blart").keeper.animals
+
         render json: animals
     end
 
@@ -14,14 +18,23 @@ class AnimalsController < ApplicationController
     end
 
     def create
-        @animal = current_user.keeper.animals.build(animal_params)
-        if @animal.species == "Tiger"
+        # Get user from session params (current_user from Devise gem)
+        # @animal = current_user.keeper.animals.build(animal_params)
+        
+        # Use demo keeper for developing react demo:
+        @animal = User.find_by(first_name: "Paul", last_name: "Blart").keeper.animals.build(animal_params)
+
+        # This line is really important
+        if @animal.species == "Tiger" || @animal.species == "Lion"
             puts "Made a kitty =^.^="
         end
+
         if @animal.save
-            redirect_to animal_path(@animal)
+            render json: @animal
+            # redirect_to animal_path(@animal)
         else
-            render 'animals/new'
+            render json: @animal.errors
+            # render 'animals/new'
         end
     end
 
@@ -35,8 +48,11 @@ class AnimalsController < ApplicationController
     end
 
     def destroy
+        # For react demo:
+        @animal = Animal.find_by(animal_params)
+        
         @animal.destroy
-        redirect_to animals_path
+        render json: @animal
     end
 
     private
@@ -46,7 +62,7 @@ class AnimalsController < ApplicationController
     end
 
     def animal_params
-        params.require(:animal).permit(:id, :name, :species, :bio, toy_ids: [])
+        params.require(:animal).permit(:id, :name, :species, :bio, toy_ids: [], images: [])
     end
 
 end
