@@ -16,6 +16,10 @@ Rails.application.routes.draw do
   # for wishes
   resources :wishes, only: [:index]
   get 'wishes/active', to: 'wishes#active'
+  post 'wishes', to: 'wishes#create'
+
+  # toys
+  get 'toys', to: 'toys#index'
 
   # to reset donations for specific wish (used for JS frontend concept only)
   post 'wishes/:id/reset_donations', to: 'wishes#reset_donations'

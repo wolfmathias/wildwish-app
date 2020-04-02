@@ -6,7 +6,9 @@ class Animal < ApplicationRecord
     has_many :donations, through: :wishes
     has_many :donors, through: :donations
 
-    
+    # Active Storeage file associations
+    has_many_attached :images
+
     # below method for frontend JS concept
     # TOO MANY DOTS!
     def location

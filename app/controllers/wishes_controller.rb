@@ -2,11 +2,21 @@ class WishesController < ApplicationController
 
     # display form for creating new wish, set animal for collection
     # route needs to be nested within animals resource
-    before_action :authenticate_user!, except: [:index, :active, :reset_donations, :reset_active_wishes]
-    load_and_authorize_resource except: [:index, :active, :reset_donations, :reset_active_wishes]
+    
+    # below commented out so authentication/authorization will not be needed for vanilla JS concept
+    # before_action :authenticate_user!, except: [:index, :active, :reset_donations, :reset_active_wishes]
+    # load_and_authorize_resource except: [:index, :active, :reset_donations, :reset_active_wishes]
 
-    def index
-        
+    # for creating wishes using animal id and toy id
+    def create
+        animal = Animal.find_by(id: wish_params[:animal_id])
+        wish = animal.wishes.new(toy_id: wish_params[:toy_id])
+        if wish.valid?
+            wish.save
+            render json: wish, include: [:animal, :toy]
+        else
+            render json: wish.errors
+        end
     end
 
     def new 
@@ -56,7 +66,7 @@ class WishesController < ApplicationController
     private
 
     def wish_params
-        params.require(:wish).permit(:id, :image_urls) # actual attribute will be different once image uploading functionality is built
+        params.require(:wish).permit(:id, :animal_id, :toy_id) # actual attribute will be different once image uploading functionality is built
     end
 
 end
