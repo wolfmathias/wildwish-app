@@ -18,7 +18,11 @@ In the root directory, run `rails db:migrate` then `rails db:seed`.
 
 # Start the server
 
-Run `rails server` in the terminal to start the server. Resources can be accessed as an API using RESTful routes ('/animals', '/wishes/active', etc). The routes for this branch ('js-concept-backend') are:
+The server is started by the command `rails server`. Use the '-p' flag to specify which port to run on. The local development build of the React App is pulling the API from port 3001.
+
+`rails server -p 3001`
+
+Resources can be accessed as an API using RESTful routes ('/animals', '/wishes/active', etc). The routes for this branch ('js-concept-backend') are:
 
 GET '/wishes/active'
 POST '/wishes/:id/reset_donations'
