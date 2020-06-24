@@ -82,7 +82,7 @@ group :test do
   gem 'chromedriver-helper'
 end
 
-gem 'bootstrap', '~> 4.0.0'
+gem 'bootstrap', '~> 4.3.1'
 gem 'devise'
 gem 'devise_invitable'
 gem 'high_voltage'
