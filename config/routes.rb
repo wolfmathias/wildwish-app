@@ -34,7 +34,13 @@ Rails.application.routes.draw do
     end
   end
 
+  # devise handles authentication
   devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks" }
+  
+  # to handle sign_in with custom controller actions:
+  # devise_scope :user do
+  #   post 'users/sign_in', to: 'sessions#create'
+  # end
 
   resources :users, only: [:show]
 
