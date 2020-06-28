@@ -13,6 +13,10 @@ Devise.setup do |config|
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
   # config.parent_controller = 'DeviseController'
+  
+  # ApplicationController usually extends ActionController::Base.
+  # In Rails5 API mode, ApplicationController extends ActionController::API, which does not include ActionController::RequestForgeryProtection
+  config.parent_controller = 'ActionController::Base'
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
