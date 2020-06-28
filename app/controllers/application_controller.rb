@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::API
-  
+  skip_before_action :verify_authenticity_token
   # Google API secrets
   # def google_secrets
   #   Google::APIClient::ClientSecrets.new(
