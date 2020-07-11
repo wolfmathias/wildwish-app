@@ -16,7 +16,8 @@ Devise.setup do |config|
   
   # ApplicationController usually extends ActionController::Base.
   # In Rails5 API mode, ApplicationController extends ActionController::API, which does not include ActionController::RequestForgeryProtection
-  config.parent_controller = 'ActionController::Base'
+  # Have devise inherit from ActionController::API to avoid issues with CSRF tokens
+  config.parent_controller = 'ActionController::API'
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
