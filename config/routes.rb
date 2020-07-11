@@ -41,6 +41,9 @@ Rails.application.routes.draw do
   # devise_scope :user do
   #   post 'users/sign_in', to: 'sessions#create'
   # end
+  devise_scope :user do
+    get 'get_auth_token', to: 'sessions#get_token'
+  end
 
   resources :users, only: [:show]
 
